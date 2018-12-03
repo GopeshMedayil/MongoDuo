@@ -1,8 +1,10 @@
+import 'zone.js/dist/zone-mix';
 import 'reflect-metadata';
 import '../polyfills';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MaterialModule } from './material.module';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
@@ -18,6 +20,8 @@ import { WebviewDirective } from './directives/webview.directive';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MongoimportComponent } from './components/mongoimport/mongoimport.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -28,12 +32,14 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     HomeComponent,
-    WebviewDirective
+    WebviewDirective,
+    MongoimportComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    MaterialModule,
     AppRoutingModule,
     TranslateModule.forRoot({
       loader: {
@@ -41,7 +47,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
-    })
+    }),
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [ElectronService],
   bootstrap: [AppComponent]

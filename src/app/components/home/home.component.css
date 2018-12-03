@@ -1,0 +1,12 @@
+@charset "UTF-8";
+.container {
+  display: flex;
+  justify-content: center;
+  /* version standardisée */
+}
+
+.container .title {
+  color: #a79f9f;
+  margin: 0;
+  padding: 50px 20px;
+}

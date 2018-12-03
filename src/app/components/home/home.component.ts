@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MongoimportComponent } from './../mongoimport/mongoimport.component';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
