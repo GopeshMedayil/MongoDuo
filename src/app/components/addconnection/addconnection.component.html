@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Add connection</h1>
+
+<mat-dialog-content [formGroup]="connectionForm">
+  <mat-form-field style="width:100%">
+    <input matInput placeholder="Name" formControlName="connectionName">
+  </mat-form-field><br />
+  <mat-form-field style="width:100%">
+    <input matInput placeholder="URL" formControlName="connectionUri">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="mat-raised-button" mat-dialog-close>Close</button>
+  <button class="mat-raised-button mat-primary" mat-dialog-close (click)="saveConnection(connectionForm)">Save</button>
+</mat-dialog-actions>

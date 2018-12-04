@@ -2,6 +2,48 @@
   <mat-toolbar color="primary">
     <div style="text-align: center">MongoDuo</div>
   </mat-toolbar>
-
 </div>
-<app-mongoimport></app-mongoimport>
+<div class="upload-container">
+  <div class="upload-btn">
+    <button mat-stroked-button color="primary" (click)="openDialog()">
+      <mat-icon>add</mat-icon>Add connection
+    </button>
+  </div>
+</div>
+<div class="connection-container">
+  <mat-card>
+    <mat-card-header class="card-header">
+      <mat-card-title class="card-title">MongoDB Connection</mat-card-title>
+      <mat-card-subtitle class="card-subtitle">Click on the add button to create connection</mat-card-subtitle>
+    </mat-card-header>
+    <div class="error-container" *ngIf="connections.length ==0">
+      <mat-card-subtitle>No connections added.</mat-card-subtitle>
+
+    </div>
+    <div class="file-container" *ngIf="connections.length>0">
+      <mat-list role="list">
+        <mat-list-item role="listitem" class="list-item" *ngFor="let connection of connections; let i = index">
+          <mat-radio-button color="primary" [checked]="i == defaultSelected" [value]="connection" (change)="selection = $event.value">
+            {{connection.connectionName}}
+          </mat-radio-button>
+        </mat-list-item>
+      </mat-list>
+
+      <!-- <mat-list>
+        <mat-list-item *ngFor="let connection of connections" class="list-item">
+          <h4 mat-line>{{connection.connectionName}}</h4>
+          <button mat-icon-button (click)="removeFile(connection)">
+            <mat-icon class="mat-24">close</mat-icon>
+          </button>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list> -->
+      <div class="button-container">
+        <button mat-stroked-button color="primary" (click)="sendFiles()">Submit</button>
+      </div>
+
+    </div>
+
+  </mat-card>
+</div>
+<!-- <app-mongoimport></app-mongoimport> -->

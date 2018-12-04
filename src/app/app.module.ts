@@ -1,9 +1,10 @@
+import { UtilService } from './providers/util.service';
 import 'zone.js/dist/zone-mix';
 import 'reflect-metadata';
 import '../polyfills';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -22,6 +23,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MongoimportComponent } from './components/mongoimport/mongoimport.component';
+import { AddconnectionComponent } from './components/addconnection/addconnection.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -33,11 +35,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     HomeComponent,
     WebviewDirective,
-    MongoimportComponent
+    MongoimportComponent,
+    AddconnectionComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
     AppRoutingModule,
@@ -51,7 +55,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [ElectronService],
-  bootstrap: [AppComponent]
+  providers: [ElectronService, UtilService],
+  bootstrap: [AppComponent],
+  entryComponents: [AddconnectionComponent]
 })
 export class AppModule { }
