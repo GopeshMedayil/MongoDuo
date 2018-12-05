@@ -21,8 +21,8 @@
 
     </div>
     <div class="file-container" *ngIf="connections.length>0">
-      <mat-list role="list">
-        <mat-list-item role="listitem" class="list-item" *ngFor="let connection of connections; let i = index">
+      <mat-list @list role="list">
+        <mat-list-item @items role="listitem" class="list-item" *ngFor="let connection of connections; let i = index">
           <mat-radio-button color="primary" [checked]="i == defaultSelected" [value]="connection" (change)="selection = $event.value">
             {{connection.connectionName}}
           </mat-radio-button>
