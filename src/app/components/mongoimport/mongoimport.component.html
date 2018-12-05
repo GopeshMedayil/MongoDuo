@@ -19,8 +19,9 @@
 
     </div>
     <div class="file-container" *ngIf="filePaths.length>0">
-      <mat-list>
-        <mat-list-item *ngFor="let folder of filePaths" class="list-item">
+      <mat-list @list>
+        <mat-list-item @items *ngFor="let folder of filePaths" class="list-item">
+
           <h4 mat-line>{{folder.name}}</h4>
           <button mat-icon-button (click)="removeFile(folder)">
             <mat-icon class="mat-24">close</mat-icon>
@@ -33,7 +34,9 @@
       </div>
 
     </div>
-
+    <!-- <div class="button-container">
+      <button mat-stroked-button color="primary" routerLink="/">Back</button>
+    </div> -->
   </mat-card>
 </div>
 
